@@ -2,16 +2,15 @@ const colorMap = {
     "NUDE 7082/2": "#eab9ae",
     "NUDE 7082/1": "#f5cbc6",
     "NUDE 7082": "#e5c4bb",
-"PALHA CLARO 7036/3": "#e4a596",
-"PALHA MÉDIO 7035/2": "##d28d7e",
-"PALHA ESCURO 7034/1": "#d2797c",
-"GOIABA 7033": "#de6e7e",
-"ROSÊ 7066": "#e0b0b2",
-"ROSA BEBÊ 7009": "#f7bbbb",
-"ROSÊ PEACH 7051": "c58c79",
-"ROSÊ TAN 7058": "#df988c",
-"ROSA CHÁ 7064": "#d9c9c3",
-    //... [outras cores]
+    "PALHA CLARO 7036/3": "#e4a596",
+    "PALHA MÉDIO 7035/2": "#d28d7e",
+    "PALHA ESCURO 7034/1": "#d2797c",
+    "GOIABA 7033": "#de6e7e",
+    "ROSÊ 7066": "#e0b0b2",
+    "ROSA BEBÊ 7009": "#f7bbbb",
+    "ROSÊ PEACH 7051": "#c58c79",
+    "ROSÊ TAN 7058": "#df988c",
+    "ROSA CHÁ 7064": "#d9c9c3",
     "ROSA CHAMPAGNE 7065": "#d6c3b4"
 };
 
@@ -93,4 +92,3 @@ function calculateColorDistance(color1, color2) {
         Math.pow(color1[2] - color2[2], 2)
     );
 }
-
