@@ -21,7 +21,7 @@
             align-items: center;
             background-color: #f0f0f0;
             position: relative;
-            margin-top: 120px; /* Ajuste para evitar sobreposição do menu */
+            margin-top: 150px; /* Ajuste para evitar sobreposição do menu */
         }
         #canvas-container {
             overflow: hidden;
@@ -115,10 +115,10 @@
         <div id="layer-list"></div>
     </div>
     <div id="controls">
-        <h3>Defina o Tamanho do Projeto</h3>
-        <label for="width">Largura:</label>
+        <h3 id="project-title">Defina o Tamanho do Projeto</h3>
+        <label for="width" id="width-label">Largura:</label>
         <input type="number" id="width" min="1">
-        <label for="height">Altura:</label>
+        <label for="height" id="height-label">Altura:</label>
         <input type="number" id="height" min="1">
         <button class="tool-btn" id="createButton" onclick="createWorkspace()">Criar</button>
         <button class="tool-btn" id="resetButton" onclick="resetWorkspace()" style="display:none;">Recomeçar</button>
@@ -165,6 +165,9 @@
 
                 document.getElementById('width').style.display = 'none';
                 document.getElementById('height').style.display = 'none';
+                document.getElementById('width-label').style.display = 'none';
+                document.getElementById('height-label').style.display = 'none';
+                document.getElementById('project-title').style.display = 'none';
                 document.getElementById('createButton').style.display = 'none';
                 document.getElementById('resetButton').style.display = 'block';
             } else {
