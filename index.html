@@ -113,7 +113,6 @@
         </div>
     </div>
     <div id="layers">
-        <h3>Camadas</h3>
         <div id="layer-list"></div>
     </div>
     <div id="controls">
@@ -359,9 +358,9 @@
                 const scaleX = layer.image.width / layer.width;
                 const scaleY = layer.image.height / layer.height;
 
-                // As dimensões do canvas temporário devem ser as da camada atual visível
-                const visibleWidth = Math.min(canvasWidth, layer.width);
-                const visibleHeight = Math.min(canvasHeight, layer.height);
+                // As dimensões do canvas temporário devem ser as do tamanho do projeto
+                const visibleWidth = canvas.width;
+                const visibleHeight = canvas.height;
                 tempCanvas.width = visibleWidth;
                 tempCanvas.height = visibleHeight;
 
@@ -370,7 +369,7 @@
                 const clipY = Math.max(0, -layer.y * scaleY);
 
                 // Desenhar a imagem no canvas temporário, considerando a escala e a posição
-                tempCtx.drawImage(layer.image, clipX, clipY, visibleWidth * scaleX, visibleHeight * scaleY, 0, 0, visibleWidth, visibleHeight);
+                tempCtx.drawImage(layer.image, clipX, clipY, layer.image.width, layer.image.height, 0, 0, visibleWidth, visibleHeight);
 
                 // Copiar a área recortada para a área de transferência
                 tempCanvas.toBlob(blob => {
@@ -384,10 +383,7 @@
 
                 // Remover a recolagem automática removendo a atualização da imagem da camada
                 // Você pode querer tratar aqui a remoção da camada ou sua ocultação, dependendo do seu caso de uso
-                if (visibleWidth > 0 && visibleHeight > 0) {
-                    deleteLayer(selectedLayer);
-                }
-
+                deleteLayer(selectedLayer);
                 isSelectingAll = false;
             }
         }
