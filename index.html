@@ -6,110 +6,129 @@
     <title>Mini Photoshop App</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            overflow: hidden;
-        }
-        #workspace {
-            flex: 1;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-            position: relative;
-            margin-top: 250px;
-        }
-        #canvas-container {
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        #canvas {
-            background: transparent;
-            border: 1px solid #ccc;
-            image-rendering: pixelated;
-        }
-        #layers {
-            width: 100%;
-            height: 100px;
-            background: #f8f8f8;
-            border-top: 1px solid #ccc;
-            padding: 10px;
-            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-            position: relative;
-            display: flex;
-            overflow-x: auto;
-            overflow-y: hidden;
-        }
-        .layer {
-            background: #fff;
-            border: 1px solid #ddd;
-            padding: 5px;
-            margin: 5px;
-            cursor: pointer;
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex: 0 0 auto;
-        }
-        .layer .delete-btn {
-            background: red;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .selected {
-            border-color: blue;
-        }
-        #controls {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            background: white;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-        }
-        .tool-btn {
-            margin: 5px 0;
-            padding: 5px 10px;
-            cursor: pointer;
-            width: 100%;
-        }
-        #resize-slider {
-            display: none;
-            width: 100%;
-        }
-        .drag-handle {
-            cursor: move;
-        }
-        #zoom-slider {
-            width: 100%;
-        }
-#layer-list {
     display: flex;
-    flex-direction: row;
-    position: relative;
-    white-space: nowrap; /* Evita quebra de linha */
+    flex-direction: column;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #2e2e2e; /* Cor de fundo da página */
+    color: #d0d0d0; /* Cor do texto */
 }
+
+#workspace {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3b3b3b; /* Cor de fundo do workspace */
+    position: relative;
+    margin-top: 200px; /* Ajuste a margem superior conforme necessário */
+}
+
+#canvas-container {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#canvas {
+    background: transparent;
+    border: 1px solid #555; /* Cor da borda do canvas */
+    image-rendering: pixelated;
+}
+
+#layers {
+    width: 100%;
+    height: 100px;
+    background: #2e2e2e; /* Cor de fundo da área de camadas */
+    border-top: 1px solid #555; /* Cor da borda superior */
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.layer {
+    background: #3b3b3b; /* Cor de fundo das camadas */
+    border: 1px solid #555; /* Cor da borda das camadas */
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 0 auto;
+    color: #d0d0d0; /* Cor do texto das camadas */
+}
+
+.layer .delete-btn {
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected {
+    border-color: #00adff; /* Cor da borda quando a camada está selecionada */
+}
+
+#controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    background: #2e2e2e; /* Cor de fundo dos controles */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    color: #d0d0d0; /* Cor do texto dos controles */
+}
+
+.tool-btn {
+    margin: 5px 0;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 100%;
+    background-color: #555; /* Cor de fundo dos botões */
+    color: #d0d0d0; /* Cor do texto dos botões */
+    border: none;
+    border-radius: 3px;
+}
+
+.tool-btn:hover {
+    background-color: #666; /* Cor de fundo dos botões ao passar o mouse */
+}
+
+#resize-slider {
+    display: none;
+    width: 100%;
+}
+
+.drag-handle {
+    cursor: move;
+}
+
+#zoom-slider {
+    width: 100%;
+}
+
 
     </style>
 </head>
